@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Send Data</title>
+  </head>
+  <body>
+    <h1>Send Data</h1>
+    <form id="dataForm">
+      <input type="text" id="inputField" placeholder="Enter your data" />
+      <button type="submit">Send</button>
+    </form>
+
+    <script>
+      document
+        .getElementById("dataForm")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+
+          const inputData = document.getElementById("inputField").value;
+          fetch(`/api/data?param=${encodeURIComponent(inputData)}`)
+            .then((response) => response.json())
+            .then((data) => console.log(data))
+            .catch((error) => console.error("Error:", error));
+        });
+    </script>
+  </body>
+</html>

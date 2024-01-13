@@ -12,8 +12,8 @@
 import moment from 'moment';
 
 class MessageFormatter {
-    constructor(botName) {
-        this.botName = botName;
+    constructor(serverName) {
+        this.botName = serverName;
     }
 
     formatMessage(username, text) {

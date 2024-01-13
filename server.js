@@ -25,6 +25,19 @@ app.use(express.static("public"));
 const botName = "My chat bot";
 const messageFormatter = new MessageFormatter("My chat bot");
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 // Run when client connects
 io.on("connection", (socket) => {
   socket.on("joinRoom", ({ username, room }) => {
@@ -82,6 +95,31 @@ io.on("connection", (socket) => {
     }
   });
 });
+
+////////gGET from server\\\
+
+
+
+app.get('/api/data', (req, res) => {
+  // Access query parameters
+  const param = req.query.param;
+
+  // Logic based on query parameters
+  // For example, fetch data based on the parameter
+  const data = fetchDataBasedOnParam(param);
+
+  // Send response
+  res.json({ success: true, data: data });
+});
+
+// Function to fetch data (mock implementation)
+function fetchDataBasedOnParam(param) {
+  // Implement your logic here
+  // For now, returning a simple message
+  return `Data for param: ${param}`;
+}
+
+
 
 const PORT = process.env.PORT || 3000;
 server.listen(PORT, () => console.log(`Server running on port ${PORT}`));
