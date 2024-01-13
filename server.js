@@ -5,7 +5,7 @@ import { Server as socketio } from "socket.io";
 // import messageFormatter.formatMessage from "./utils/messages.js";
 import MessageFormatter from "./utils/messages.js";
 
-import dotenv from "dotenv";
+// import dotenv from "dotenv";
 import {
   userJoin,
   getCurrentUser,
@@ -13,7 +13,7 @@ import {
   getRoomUsers,
 } from "./utils/users.js";
 
-dotenv.config();
+// dotenv.config();
 
 const app = express();
 const server = http.createServer(app);
